@@ -15,7 +15,7 @@ async function DeepLinks({ recipientName }: { recipientName: string }) {
     <div className="flex flex-col gap-3 m-10">
 
       <div className="max-w-[900px] text-left text-sm md:text-lg font-medium">
-        {`${recipientName}, this is where you can claim your LCW Experience Badge. Here’s how it works:`}
+        {`${recipientName}, this is where you can claim your DCC Summit Presenter Badge. Here’s how it works:`}
       </div>
       <div className="max-w-[900px] text-left text-sm md:text-base font-medium">
         1. If you haven't installed the Learner Credential Wallet yet, <Link className="font-extrabold text-gray-800 transition-colors hover:bg-gray-200" href="https://lcw.app/" target="_blank">install on your mobile device</Link>, follow set-up instructions in the app and return here for next steps.
@@ -67,7 +67,7 @@ export default async function Page(props: {
     <main className="flex flex-col items-center md:h-screen w-screen">
       <div className="mx-auto flex md:gap-4 items-center max-w-screen-lg flex-col space-y-2.5 p-4">
         <div className="text-l md:text-3xl font-medium">Digital Credentials Consortium</div>
-        <div className="text-l md:text-3xl font-medium">LCW Experience Badge</div>
+        <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
         <Image
           src="/lcw-badge-image.png"
           width={220}
