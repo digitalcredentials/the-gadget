@@ -5,17 +5,24 @@ import QRCode from "react-qr-code";
 import TimeOut from '@/app/ui/collect/timeout';
 
 import { getDeepLink } from '@/app/lib/deepLinkAction';
+import { vcTemplate } from '../vcTemplate';
 
 async function DeepLinks({ recipientName }: { recipientName: string }) {
 
   //const deepLink = `https://lcw.app/request.html?issuer=issuer.example.com&auth_type=bearer&challenge=${transactionId}&vc_request_url=https://issuer.dcconsortium.org/exchange/${exchangeId}/${transactionId}`
-  const deepLink = await getDeepLink(recipientName)
+
+    const vc = JSON.parse(JSON.stringify(vcTemplate))
+    vc.credentialSubject.name = recipientName
+    vc.validFrom = (new Date()).toISOString();
+
+  
+  const deepLink = await getDeepLink(vc)
 
   return (
     <div className="flex flex-col gap-3 m-10">
 
       <div className="max-w-[900px] text-left text-sm md:text-lg font-medium">
-        {`${recipientName}, this is where you can claim your LCW Experience Badge. Here’s how it works:`}
+        {`${recipientName}, this is where you can claim your DCC Summit Presenter Badge. Here’s how it works:`}
       </div>
       <div className="max-w-[900px] text-left text-sm md:text-base font-medium">
         1. If you haven't installed the Learner Credential Wallet yet, <Link className="font-extrabold text-gray-800 transition-colors hover:bg-gray-200" href="https://lcw.app/" target="_blank">install on your mobile device</Link>, follow set-up instructions in the app and return here for next steps.
@@ -67,7 +74,7 @@ export default async function Page(props: {
     <main className="flex flex-col items-center md:h-screen w-screen">
       <div className="mx-auto flex md:gap-4 items-center max-w-screen-lg flex-col space-y-2.5 p-4">
         <div className="text-l md:text-3xl font-medium">Digital Credentials Consortium</div>
-        <div className="text-l md:text-3xl font-medium">LCW Experience Badge</div>
+        <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
         <Image
           src="/lcw-badge-image.png"
           width={220}

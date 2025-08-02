@@ -1,4 +1,4 @@
-import Form from './issue-form-lcw';
+import Form from './form';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -8,7 +8,7 @@ export default function Page() {
     <main className="flex flex-col items-center md:h-screen w-screen">
       <div className="mx-auto flex md:gap-4 items-center max-w-screen-lg flex-col space-y-2.5 p-4">
         <div className="text-l md:text-3xl font-medium">Digital Credentials Consortium</div>
-        <div className="text-l md:text-3xl font-medium">LCW Experience Badge</div>
+        <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
         <Image
           src="/lcw-badge-image.png"
           width={220}

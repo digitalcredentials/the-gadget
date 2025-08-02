@@ -8,9 +8,9 @@ const tenantAuthToken = process.env.LCWEXP_TOKEN
 const timeToLive = 300000  // 5 minutes
 const tenantName = 'test'
 
-export async function getDeepLink(recipientName:string):Promise<any> {
+export async function getDeepLink(vc:any):Promise<any> {
 
-const vc = getLCWBadge(recipientName)
+//const vc = getLCWBadge(recipientName)
 
   const dataToPost = {
     tenantName,

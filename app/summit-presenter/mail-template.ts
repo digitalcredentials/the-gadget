@@ -1,4 +1,4 @@
-export const getLCWExperienceEmail = (claimPageLink:string, earnerName: string) =>  {
+export const getPopulatedEmail = (claimPageLink:string, earnerName: string) =>  {
     return `<!DOCTYPE html>
 <html>
 <head>
