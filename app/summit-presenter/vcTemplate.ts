@@ -1,5 +1,5 @@
 
-export const lcwExperienceBadge = {
+export const vcTemplate = {
     "@context": [
         "https://www.w3.org/ns/credentials/v2",
         "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json"
@@ -20,7 +20,7 @@ export const lcwExperienceBadge = {
         }
     },
     "validFrom": "2020-02-26T00:00:00Z",
-    "name": "LCW Experience Badge",
+    "name": "DCC Summit Presenter",
     "credentialSubject": {
         "name": "",
         "type": ["AchievementSubject"],
@@ -29,14 +29,14 @@ export const lcwExperienceBadge = {
             "type": ["Achievement"],
             "achievementType": "Badge",
             "criteria": {
-              "narrative": "- Learner experienced the on-demand issuing of the [LCW Experience Badge](https://badging.dcconsortium.org/lcw-experience-badge).\n- Learned about [W3C Verifiable Credentials and Open Badges 3.0](https://blog.dcconsortium.org/explaining-verifiable-credentials-and-open-badges-3-0-34ae898b98b2)"
+              "narrative": "presented"
             },
             "image": {
               "id": "https://github.com/user-attachments/assets/3042a8c8-4835-4340-91b0-aa2cec3b2cf2",
               "type": "Image"
             },
-            "description": "Learner has experienced claiming and accepting an Open Badge 3.0 in their Learner Credential Wallet Application.",
-            "name": "LCW Experience Badge"
+            "description": "presented.",
+            "name": "DCC Summit Presenter"
         }
     }
 }
