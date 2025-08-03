@@ -3,6 +3,8 @@
 import { z } from 'zod';
 import { getPopulatedEmail } from './mail-template';
 import { sendEmail } from '@/app/lib/sendEmail';
+import { getDeepLink } from '@/app/lib/deepLinkAction';
+import { vcTemplate } from './vcTemplate';
 
 const appHost = process.env.APP_HOST
 
@@ -42,8 +44,16 @@ export async function handleFormSubmission(prevState: State, formData: FormData)
   }
 
   try {
+    // setup the exchange
+        const vc = JSON.parse(JSON.stringify(vcTemplate))
+    vc.credentialSubject.name = recipientName
+    vc.validFrom = (new Date()).toISOString();
+
+  
+  const deepLink = await getDeepLink(vc)
+
     // send email
-    const collectionPageURL = `${appHost}/summit-presenter/collect?recipientName=${validatedFields.data.recipientName}`
+    const collectionPageURL = `${appHost}/summit-presenter/collect?recipientName=${validatedFields.data.recipientName}&deepLink=${deepLink}`
     const htmlForEmail = getPopulatedEmail(collectionPageURL, validatedFields.data.recipientName)
     await sendEmail({
       html: htmlForEmail, 
