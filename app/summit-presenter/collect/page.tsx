@@ -4,19 +4,10 @@ import Image from 'next/image';
 import QRCode from "react-qr-code";
 import TimeOut from '@/app/ui/collect/timeout';
 
-import { getDeepLink } from '@/app/lib/deepLinkAction';
-import { vcTemplate } from '../vcTemplate';
-
-async function DeepLinks({ recipientName }: { recipientName: string }) {
+async function DeepLinks({ deepLink, recipientName }: { recipientName: string, deepLink: string }) {
 
   //const deepLink = `https://lcw.app/request.html?issuer=issuer.example.com&auth_type=bearer&challenge=${transactionId}&vc_request_url=https://issuer.dcconsortium.org/exchange/${exchangeId}/${transactionId}`
 
-    const vc = JSON.parse(JSON.stringify(vcTemplate))
-    vc.credentialSubject.name = recipientName
-    vc.validFrom = (new Date()).toISOString();
-
-  
-  const deepLink = await getDeepLink(vc)
 
   return (
     <div className="flex flex-col gap-3 m-10">
@@ -64,11 +55,13 @@ async function DeepLinks({ recipientName }: { recipientName: string }) {
 export default async function Page(props: {
   searchParams?: Promise<{
     recipientName?: string;
+    deepLink?: string;
   }>;
 }) {
 
   const searchParams = await props.searchParams;
   const recipientName = searchParams?.recipientName || '';
+  const deepLink = searchParams?.deepLink || '';
 
   return (
     <main className="flex flex-col items-center md:h-screen w-screen">
@@ -85,7 +78,7 @@ export default async function Page(props: {
       </div>
       <div className="md:min-w-[500px]">
         <Suspense>
-          <DeepLinks recipientName={recipientName} />
+          <DeepLinks recipientName={recipientName} deepLink={deepLink} />
         </Suspense>
       </div>
 
