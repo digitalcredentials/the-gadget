@@ -51,9 +51,12 @@ export async function handleFormSubmission(prevState: State, formData: FormData)
 
   
   const deepLink = await getDeepLink(vc)
+  const params = new URLSearchParams();
+params.append("deepLink", deepLink);
+params.append("recipientName", validatedFields.data.recipientName);
 
     // send email
-    const collectionPageURL = `${appHost}/summit-presenter/collect?recipientName=${validatedFields.data.recipientName}&deepLink=${deepLink}`
+    const collectionPageURL = `${appHost}/summit-presenter/collect?${params.toString()}`
     const htmlForEmail = getPopulatedEmail(collectionPageURL, validatedFields.data.recipientName)
     await sendEmail({
       html: htmlForEmail, 
