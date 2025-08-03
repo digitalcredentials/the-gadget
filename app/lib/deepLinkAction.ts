@@ -1,7 +1,5 @@
 'use server';
 
-import { getLCWBadge } from './vc-templates/getVC';
-
 const exchangeHost = process.env.EXCHANGE_HOST
 const tenantAuthToken = process.env.LCWEXP_TOKEN
 
@@ -10,14 +8,13 @@ const tenantName = 'test'
 
 export async function getDeepLink(vc:any):Promise<any> {
 
-//const vc = getLCWBadge(recipientName)
-
   const dataToPost = {
     tenantName,
     "data": [
       {
         "retrievalId": "single",
         timeToLive,
+        deleteWhenCollected: true,
         vc
       }
     ]
