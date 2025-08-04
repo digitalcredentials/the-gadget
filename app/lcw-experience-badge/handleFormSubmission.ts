@@ -1,7 +1,7 @@
 'use server';
 
 import { z } from 'zod';
-import { getPopulatedEmail } from './mail-template';
+import { getPopulatedEmail } from './getPopulatedEmail';
 import { sendEmail } from '../lib/sendEmail';
 
 const appHost = process.env.APP_HOST
