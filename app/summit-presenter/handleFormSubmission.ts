@@ -1,7 +1,7 @@
 'use server';
 
 import { z } from 'zod';
-import { getPopulatedEmail } from './mail-template';
+import { getPopulatedEmail } from './getPopulatedEmail';
 import { sendEmail } from '@/app/lib/sendEmail';
 import { getDeepLink } from '@/app/lib/deepLink';
 import { getPopulatedVC } from './getPopulatedVC';
