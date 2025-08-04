@@ -1,22 +1,10 @@
 'use server';
 
 import { z } from 'zod';
-import { getLCWExperienceEmail } from './mail-template';
-import nodemailer from 'nodemailer'
+import { getPopulatedEmail } from './mail-template';
+import { sendEmail } from '../lib/sendEmail';
 
-const host = process.env.SMTP_HOST
-const user = process.env.SMTP_USER
-const pass = process.env.SMTP_PASS
-const port = process.env.SMTP_PORT
 const appHost = process.env.APP_HOST
-
-const smtpOptions : any = {
-    host,
-    auth: { user, pass },
-    ...(port && {port})
-} 
-
-const transporter = nodemailer.createTransport(smtpOptions)
 
 const FormSchema = z.object({
   recipientName: z.string().trim()
@@ -38,7 +26,7 @@ export type State = {
 };
 
 
-export async function sendEmail(prevState: State, formData: FormData) : Promise<State> {
+export async function handleFormSubmission(prevState: State, formData: FormData) : Promise<State> {
 
   const recipientName = formData.get('recipientName')
   const email = formData.get('email')
@@ -55,10 +43,14 @@ export async function sendEmail(prevState: State, formData: FormData) : Promise<
 
   try {
     // send email
-    const collectionPageURL = `${appHost}/collect?recipientName=${validatedFields.data.recipientName}`
-    const emailContent = getLCWExperienceEmail(collectionPageURL, validatedFields.data.recipientName)
-    await sendMail(emailContent, validatedFields.data.email)
-    
+    const collectionPageURL = `${appHost}/lcw-experience-badge/collect?recipientName=${validatedFields.data.recipientName}`
+    const htmlForEmail = getPopulatedEmail(collectionPageURL, validatedFields.data.recipientName)
+    await sendEmail({
+      html: htmlForEmail, 
+      to: validatedFields.data.email, 
+      from: process.env.EMAIL_FROM as string, 
+      subject: "You've got a credential waiting!"
+    })
   } catch (error) {
     console.log(error)
     return {
@@ -70,15 +62,7 @@ export async function sendEmail(prevState: State, formData: FormData) : Promise<
   return {...data, success: true};
 }
 
-async function sendMail(message:string, recipient:string) {
-    const messageParams = {
-        from: process.env.EMAIL_FROM,
-        to: recipient,
-        subject: "You've got a credential!",
-        html: message
-      }
-    await transporter.sendMail(messageParams)
-}
+
 
 
 
