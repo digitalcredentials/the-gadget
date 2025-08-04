@@ -6,6 +6,15 @@ const tenantAuthToken = process.env.LCWEXP_TOKEN
 const timeToLive = 300000  // 5 minutes
 const tenantName = 'test'
 
+export async function confirmDeepLinkStillValid(deepLink:string):Promise<boolean> {
+     //https://lcw.app/request.html?issuer=issuer.example.com&auth_type=bearer&challenge=50991c0d-e033-49c4-86aa-7f3620cf6937&vc_request_url=https://issuer.dcconsortium.org/exchange/e63007bc-6065-417c-8ae8-6b8fbc6a79df/50991c0d-e033-49c4-86aa-7f3620cf6937
+  const parsedDeepLink = new URL(deepLink)
+  const vcRequestUrl = parsedDeepLink.searchParams.get('vc_request_url') as string 
+  const exchangeTestUrl = vcRequestUrl.split('/').slice(0, -1).join('/')
+  const result = await postData(exchangeTestUrl)
+  return result.verifiablePresentationRequest
+}
+
 export async function getDeepLink(vc:any):Promise<any> {
 
   const dataToPost = {
