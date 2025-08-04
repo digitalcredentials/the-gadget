@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { getPopulatedEmail } from './mail-template';
 import { sendEmail } from '@/app/lib/sendEmail';
 import { getDeepLink } from '@/app/lib/deepLinkAction';
-import { vcTemplate } from './vcTemplate';
+import { getPopulatedVC } from './getPopulatedVC';
 
 const appHost = process.env.APP_HOST
 
@@ -45,10 +45,7 @@ export async function handleFormSubmission(prevState: State, formData: FormData)
 
   try {
     // setup the exchange
-        const vc = JSON.parse(JSON.stringify(vcTemplate))
-    vc.credentialSubject.name = recipientName
-    vc.validFrom = (new Date()).toISOString();
-
+  const vc = getPopulatedVC(recipientName as string)
   
   const deepLink = await getDeepLink(vc)
   const params = new URLSearchParams();

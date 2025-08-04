@@ -41,4 +41,11 @@ export const vcTemplate = {
     }
 }
 
+const getPopulatedVC = (recipientName: string) => {
+  const vc = JSON.parse(JSON.stringify(vcTemplate))
+  vc.credentialSubject.name = recipientName
+  vc.validFrom = (new Date()).toISOString();
+  return vc
+}
 
+export { getPopulatedVC };
