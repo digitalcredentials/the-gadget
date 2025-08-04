@@ -88,8 +88,6 @@ export default async function Page(props: {
           'Sorry the link to collect your credential has expired or has been used. Please email us to get a new link.'}
         </Suspense>
       </div>
-
-      <TimeOut />
     </main>
   );
 }
