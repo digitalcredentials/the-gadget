@@ -6,13 +6,13 @@ import {
 } from '@heroicons/react/24/outline';
 
 import { Button } from '@/app/ui/button';
-import { sendEmail, State } from '@/app/lib/mailClaimPageAction';
+import { handleFormSubmission, State } from './handleFormSubmission';
 import { useActionState, useState } from 'react';
 
 // If want default data, put this in the intitialState:  data: {recipientName: 'jc', email: 'chartraj@mit.edu'}
 export default function Form() {
   const initialState: State = { message: null, errors: {} };
-  const [state, formAction] = useActionState(sendEmail, initialState);
+  const [state, formAction] = useActionState(handleFormSubmission, initialState);
   const [success, setSuccess] = useState(false)
 
   return (
