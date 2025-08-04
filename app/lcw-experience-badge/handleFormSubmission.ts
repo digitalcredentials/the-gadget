@@ -1,7 +1,7 @@
 'use server';
 
 import { z } from 'zod';
-import { getLCWExperienceEmail } from './email-templates/lcw-experience';
+import { getLCWExperienceEmail } from './mail-template';
 import nodemailer from 'nodemailer'
 
 const host = process.env.SMTP_HOST
