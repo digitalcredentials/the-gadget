@@ -1,4 +1,5 @@
 
+
 export const lcwExperienceBadge = {
     "@context": [
         "https://www.w3.org/ns/credentials/v2",
@@ -41,4 +42,11 @@ export const lcwExperienceBadge = {
     }
 }
 
+const getPopulatedVC = (recipientName: string) => {
+  const vc = JSON.parse(JSON.stringify(lcwExperienceBadge))
+  vc.credentialSubject.name = recipientName
+  vc.validFrom = (new Date()).toISOString();
+  return vc
+}
 
+export { getPopulatedVC };
