@@ -4,12 +4,14 @@ import Image from 'next/image';
 import QRCode from "react-qr-code";
 import TimeOut from '@/app/ui/collect/timeout';
 
-import { getDeepLink } from '@/app/lib/deepLinkAction';
+import { getDeepLink } from '@/app/lib/deepLink';
+import { getPopulatedVC } from '../getPopulatedVC';
 
 async function DeepLinks({ recipientName }: { recipientName: string }) {
 
   //const deepLink = `https://lcw.app/request.html?issuer=issuer.example.com&auth_type=bearer&challenge=${transactionId}&vc_request_url=https://issuer.dcconsortium.org/exchange/${exchangeId}/${transactionId}`
-  const deepLink = await getDeepLink(recipientName)
+  const vc = getPopulatedVC(recipientName)
+  const deepLink = await getDeepLink(vc)
 
   return (
     <div className="flex flex-col gap-3 m-10">

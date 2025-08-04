@@ -1,5 +1,6 @@
 
-export const vcTemplate = {
+
+export const lcwExperienceBadge = {
     "@context": [
         "https://www.w3.org/ns/credentials/v2",
         "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json"
@@ -20,7 +21,7 @@ export const vcTemplate = {
         }
     },
     "validFrom": "2020-02-26T00:00:00Z",
-    "name": "DCC Summit Presenter",
+    "name": "LCW Experience Badge",
     "credentialSubject": {
         "name": "",
         "type": ["AchievementSubject"],
@@ -29,16 +30,23 @@ export const vcTemplate = {
             "type": ["Achievement"],
             "achievementType": "Badge",
             "criteria": {
-              "narrative": "presented"
+              "narrative": "- Learner experienced the on-demand issuing of the [LCW Experience Badge](https://badging.dcconsortium.org/lcw-experience-badge).\n- Learned about [W3C Verifiable Credentials and Open Badges 3.0](https://blog.dcconsortium.org/explaining-verifiable-credentials-and-open-badges-3-0-34ae898b98b2)"
             },
             "image": {
               "id": "https://github.com/user-attachments/assets/3042a8c8-4835-4340-91b0-aa2cec3b2cf2",
               "type": "Image"
             },
-            "description": "presented.",
-            "name": "DCC Summit Presenter"
+            "description": "Learner has experienced claiming and accepting an Open Badge 3.0 in their Learner Credential Wallet Application.",
+            "name": "LCW Experience Badge"
         }
     }
 }
 
+const getPopulatedVC = (recipientName: string) => {
+  const vc = JSON.parse(JSON.stringify(lcwExperienceBadge))
+  vc.credentialSubject.name = recipientName
+  vc.validFrom = (new Date()).toISOString();
+  return vc
+}
 
+export { getPopulatedVC };

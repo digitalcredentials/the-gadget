@@ -10,7 +10,7 @@ export default function Page() {
         <div className="text-l md:text-3xl font-medium">Digital Credentials Consortium</div>
         <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
         <Image
-          src="/lcw-badge-image.png"
+          src="/DCC-logo.png"
           width={220}
           height={220}
           alt="lcw badge logo"

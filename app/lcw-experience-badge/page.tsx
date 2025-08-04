@@ -1,4 +1,4 @@
-import Form from './issue-form-lcw';
+import Form from './form';
 import Image from 'next/image';
 import Link from 'next/link';
 
