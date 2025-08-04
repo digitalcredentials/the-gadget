@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import QRCode from "react-qr-code";
 import TimeOut from '@/app/ui/collect/timeout';
-import { confirmDeepLinkStillValid } from '@/app/lib/deepLinkAction';
+import { confirmDeepLinkStillValid } from '@/app/lib/deepLink';
 
 async function DeepLinks({ deepLink, recipientName }: { recipientName: string, deepLink: string }) {
 

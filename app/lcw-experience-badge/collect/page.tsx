@@ -4,7 +4,7 @@ import Image from 'next/image';
 import QRCode from "react-qr-code";
 import TimeOut from '@/app/ui/collect/timeout';
 
-import { getDeepLink } from '@/app/lib/deepLinkAction';
+import { getDeepLink } from '@/app/lib/deepLink';
 import { getPopulatedVC } from '../getPopulatedVC';
 
 async function DeepLinks({ recipientName }: { recipientName: string }) {

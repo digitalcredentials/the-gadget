@@ -3,7 +3,7 @@
 import { z } from 'zod';
 import { getPopulatedEmail } from './mail-template';
 import { sendEmail } from '@/app/lib/sendEmail';
-import { getDeepLink } from '@/app/lib/deepLinkAction';
+import { getDeepLink } from '@/app/lib/deepLink';
 import { getPopulatedVC } from './getPopulatedVC';
 
 const appHost = process.env.APP_HOST
