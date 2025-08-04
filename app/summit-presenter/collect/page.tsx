@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import QRCode from "react-qr-code";
 import TimeOut from '@/app/ui/collect/timeout';
+import { confirmDeepLinkStillValid } from '@/app/lib/deepLinkAction';
 
 async function DeepLinks({ deepLink, recipientName }: { recipientName: string, deepLink: string }) {
 
@@ -63,7 +64,10 @@ export default async function Page(props: {
   const recipientName = searchParams?.recipientName || '';
   const deepLink = searchParams?.deepLink || '';
 
+  const isDeepLinkValid = await confirmDeepLinkStillValid(deepLink);
+
   return (
+  
     <main className="flex flex-col items-center md:h-screen w-screen">
       <div className="mx-auto flex md:gap-4 items-center max-w-screen-lg flex-col space-y-2.5 p-4">
         <div className="text-l md:text-3xl font-medium">Digital Credentials Consortium</div>
@@ -78,7 +82,10 @@ export default async function Page(props: {
       </div>
       <div className="md:min-w-[500px]">
         <Suspense>
+            {isDeepLinkValid ? 
           <DeepLinks recipientName={recipientName} deepLink={deepLink} />
+          :
+          'Sorry the link to collect your credential has expired or has been used. Please email us to get a new link.'}
         </Suspense>
       </div>
 
