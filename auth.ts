@@ -4,12 +4,21 @@ import { authConfig } from './auth.config';
 import { z } from 'zod';
 type User = {email: string, password: string}
 
+import fs from 'fs';
+
+let users: [User];
+try {
+  users = JSON.parse(fs.readFileSync('users.ts', 'utf8'));
+  console.log('File content:', users);
+} catch (err) {
+  console.error('Error reading file:', err);
+}
 
 async function getUser(email: string): Promise<User | undefined> {
   try {
-    // will get this from a passwords file or .env
-    if (email === 'chartraj@mit.edu') {
-        return {password: 'slowfish', email: 'chartraj@mit.edu'};
+    const user = users.find(user => user.email === email);
+    if (user) {
+        return user;
     } else {
         throw Error("user doesn't exist")
     }
