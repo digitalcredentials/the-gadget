@@ -7,8 +7,8 @@ export default function Page() {
 
     <main className="flex flex-col items-center md:h-screen w-screen">
       <div className="mx-auto flex md:gap-4 items-center max-w-screen-lg flex-col space-y-2.5 p-4">
-        <div className="text-l md:text-3xl font-medium">Digital Credentials Consortium</div>
-        <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
+
+       
         <Image
           src="/creds/DCCLogo-White.png"
           width={322}
@@ -25,12 +25,14 @@ export default function Page() {
           height={100}
         />
        
+        <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
 
-   <div>Enter the name of the recipient as it should appear in the credential, their email address, and then click the "Award Credential" button.</div>
+   <div>Enter the name of the recipient as it should appear in the credential.</div>
+   <div>Enter the email address to which the notification should be sent.</div>
      
         
 
-        <p className="max-w-[800px] text-sm md:text-base font-medium">They will be sent an email with instructions to claim their badge.</p>
+        <p className="max-w-[800px] text-sm md:text-base font-medium">The email will explain how to claim their badge.</p>
 
 
       </div>

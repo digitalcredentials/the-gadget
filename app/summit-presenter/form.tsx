@@ -26,7 +26,7 @@ export default function Form() {
   {/* Name to put on the credential */}
         <div className="mb-1 md:mb-4">
           <label htmlFor="recipientName" className="mb-2 block text-sm font-medium dark:text-black">
-            Name
+            Recipient's name (as it should appear in the credential)
           </label>
           <div className="relative mt-1 md:mt-2 rounded-md">
             <div className="relative">
@@ -57,7 +57,7 @@ export default function Form() {
   {/* Email address to which to send the credential */}
   <div className="mb-1 md:mb-4">
           <label htmlFor="email" className="mb-2 block text-sm font-medium dark:text-black">
-            Email Address
+            Email Address (to notify the recipient)
           </label>
           <div className="relative  mt-1 md:mt-2 rounded-md">
             <div className="relative">
@@ -103,9 +103,9 @@ export default function Form() {
 
       <div className=" max-w-[500px] space-y-2.5 p-4 md:-mt-10 text-center">
         <br/><br/>
-        Your credential has been awarded!. 
+        The email has been sent!
         <br/><br/>
-        You should momentarily receive an email with a link to collect the credential.
+        The recipient should momentarily receive an email with a link to collect the credential.
         <br/><br/>
         <div className="mt-2 md:mt-6 flex justify-center md:gap-4">
           <Button className="bg-[#429EA6] hover:bg-gray-200 text-gray-900" onClick={()=>{state.success = false; setSuccess(!success)}}>Award Another</Button>
