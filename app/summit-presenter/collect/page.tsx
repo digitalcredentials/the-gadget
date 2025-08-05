@@ -70,8 +70,7 @@ export default async function Page(props: {
   
     <main className="flex flex-col items-center md:h-screen w-screen">
       <div className="mx-auto flex md:gap-4 items-center max-w-screen-lg flex-col space-y-2.5 p-4">
-        <div className="text-l md:text-3xl font-medium">Digital Credentials Consortium</div>
-        <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
+    
         <Image
            src="/creds/DCCLogo-White.png"
            width={322}
@@ -87,6 +86,9 @@ export default async function Page(props: {
            width={322}
            height={100}
          />
+
+             <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
+             
       </div>
       <div className="md:min-w-[500px]">
         <Suspense>
