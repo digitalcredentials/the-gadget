@@ -41,7 +41,7 @@ async function DeepLinks({ deepLink, recipientName }: { recipientName: string, d
       </div>
       <div className="max-w-[900px] text-left text-sm md:text-base font-medium">
         3. This will open the wallet app where you will see an offer to accept this badge.
-        <div className="mx-6 mt-2 p-3 bg-slate-100 italic font-sans text-sm"> In the background, the wallet will tell the issuing system the digital identity associated with your wallet. Then, the issuer will add that identity to your badge data, digitally sign it and send it back to your wallet where you can choose to accept it.
+        <div className="mx-6 mt-2 p-3 bg-slate-100 dark:text-black italic font-sans text-sm"> In the background, the wallet will tell the issuing system the digital identity associated with your wallet. Then, the issuer will add that identity to your badge data, digitally sign it and send it back to your wallet where you can choose to accept it.
         </div>
       </div>
       <div className="max-w-[900px] text-left text-sm md:text-base font-medium">
@@ -88,7 +88,7 @@ export default async function Page(props: {
          />
 
              <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
-             
+
       </div>
       <div className="md:min-w-[500px]">
         <Suspense>
