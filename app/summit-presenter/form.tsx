@@ -25,7 +25,7 @@ export default function Form() {
        
   {/* Name to put on the credential */}
         <div className="mb-1 md:mb-4">
-          <label htmlFor="recipientName" className="mb-2 block text-sm font-medium">
+          <label htmlFor="recipientName" className="mb-2 block text-sm font-medium dark:text-black">
             Name
           </label>
           <div className="relative mt-1 md:mt-2 rounded-md">
@@ -36,7 +36,7 @@ export default function Form() {
                 type="string"
                 defaultValue={state.data?.recipientName?state.data.recipientName:undefined}
                 placeholder="Recipient's name"
-                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500 dark:text-black"
                 aria-describedby="recipientName-error"
               />
               <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
@@ -56,7 +56,7 @@ export default function Form() {
 
   {/* Email address to which to send the credential */}
   <div className="mb-1 md:mb-4">
-          <label htmlFor="email" className="mb-2 block text-sm font-medium">
+          <label htmlFor="email" className="mb-2 block text-sm font-medium dark:text-black">
             Email Address
           </label>
           <div className="relative  mt-1 md:mt-2 rounded-md">
@@ -67,7 +67,7 @@ export default function Form() {
                 type="email"
                 defaultValue={state.data?.email?state.data.email:undefined}
                 placeholder="Recipient's email address"
-                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500 dark:text-black"
                 aria-describedby="email-error"
               />
               <InboxArrowDownIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
