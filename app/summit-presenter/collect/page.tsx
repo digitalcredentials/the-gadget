@@ -73,12 +73,20 @@ export default async function Page(props: {
         <div className="text-l md:text-3xl font-medium">Digital Credentials Consortium</div>
         <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
         <Image
-          src="/lcw-badge-image.png"
-          width={220}
-          height={220}
-          alt="Screenshot of the dashboard project showing mobile version"
-          className="block md:m-50"
-        />
+           src="/creds/DCCLogo-White.png"
+           width={322}
+           height={100}
+           alt="dark-mode-dcc-logo"
+           className="hidden dark:block md:m-10"
+         />
+ 
+         <Image
+           className="md:m-10 block dark:hidden"
+           src="/creds/DCC-Logo.png"
+           alt="light-mode-dcc-logo"
+           width={322}
+           height={100}
+         />
       </div>
       <div className="md:min-w-[500px]">
         <Suspense>
