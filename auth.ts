@@ -5,11 +5,10 @@ import { z } from 'zod';
 type User = {email: string, password: string}
 
 import fs from 'fs';
-
+ 
 let users: [User];
 try {
-  users = JSON.parse(fs.readFileSync('users.ts', 'utf8'));
-  console.log('File content:', users);
+  users = JSON.parse(fs.readFileSync('./users.json', 'utf8'));
 } catch (err) {
   console.error('Error reading file:', err);
 }
