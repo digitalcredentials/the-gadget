@@ -17,7 +17,7 @@ async function DeepLinks({ deepLink, recipientName }: { recipientName: string, d
         {`${recipientName}, this is where you can claim your DCC Summit Presenter Badge. Here’s how it works:`}
       </div>
       <div className="max-w-[900px] text-left text-sm md:text-base font-medium">
-        1. If you haven't installed the Learner Credential Wallet yet, <Link className="font-extrabold text-gray-800 transition-colors hover:bg-gray-200" href="https://lcw.app/" target="_blank">install on your mobile device</Link>, follow set-up instructions in the app and return here for next steps.
+        1. If you haven't installed the Learner Credential Wallet yet, <Link className="font-extrabold text-gray-800 dark:text-white transition-colors hover:bg-gray-200" href="https://lcw.app/" target="_blank">install on your mobile device</Link>, follow set-up instructions in the app and return here for next steps.
       </div>
       <div className="max-w-[900px] text-left text-sm md:text-base font-medium">
         2. If you are viewing this page on your phone then click here to add your credential to the Learner Credential Wallet:<br />
