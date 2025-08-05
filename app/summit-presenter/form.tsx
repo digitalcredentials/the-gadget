@@ -25,8 +25,8 @@ export default function Form() {
        
   {/* Name to put on the credential */}
         <div className="mb-1 md:mb-4">
-          <label htmlFor="recipientName" className="mb-2 block text-sm font-medium">
-            Name
+          <label htmlFor="recipientName" className="mb-2 block text-sm font-medium dark:text-black">
+            Recipient's name (as it should appear in the credential)
           </label>
           <div className="relative mt-1 md:mt-2 rounded-md">
             <div className="relative">
@@ -36,7 +36,7 @@ export default function Form() {
                 type="string"
                 defaultValue={state.data?.recipientName?state.data.recipientName:undefined}
                 placeholder="Recipient's name"
-                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500 dark:text-black"
                 aria-describedby="recipientName-error"
               />
               <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
@@ -56,8 +56,8 @@ export default function Form() {
 
   {/* Email address to which to send the credential */}
   <div className="mb-1 md:mb-4">
-          <label htmlFor="email" className="mb-2 block text-sm font-medium">
-            Email Address
+          <label htmlFor="email" className="mb-2 block text-sm font-medium dark:text-black">
+            Email Address (to notify the recipient)
           </label>
           <div className="relative  mt-1 md:mt-2 rounded-md">
             <div className="relative">
@@ -67,7 +67,7 @@ export default function Form() {
                 type="email"
                 defaultValue={state.data?.email?state.data.email:undefined}
                 placeholder="Recipient's email address"
-                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500 dark:text-black"
                 aria-describedby="email-error"
               />
               <InboxArrowDownIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
@@ -103,9 +103,9 @@ export default function Form() {
 
       <div className=" max-w-[500px] space-y-2.5 p-4 md:-mt-10 text-center">
         <br/><br/>
-        Your credential has been awarded!. 
+        The email has been sent!
         <br/><br/>
-        You should momentarily receive an email with a link to collect the credential.
+        The recipient should momentarily receive an email with a link to collect the credential.
         <br/><br/>
         <div className="mt-2 md:mt-6 flex justify-center md:gap-4">
           <Button className="bg-[#429EA6] hover:bg-gray-200 text-gray-900" onClick={()=>{state.success = false; setSuccess(!success)}}>Award Another</Button>
