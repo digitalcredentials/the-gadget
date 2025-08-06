@@ -3,7 +3,7 @@
 import fs from 'fs';
 
 const exchangeHost = process.env.EXCHANGE_HOST
-const timeToLive = 300000  // 5 minutes
+const timeToLive = 900000  // 15 minutes
 let tenants : any
 try {
   tenants = JSON.parse(fs.readFileSync('./secrets.json', 'utf8')).tenants;

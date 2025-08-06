@@ -6,6 +6,7 @@ import { sendEmail } from '@/app/lib/sendEmail';
 import { getDeepLink } from '@/app/lib/deepLink';
 import { getPopulatedVC } from './getPopulatedVC';
 
+const credName = "summit-presenter"  // for tenancy
 const appHost = process.env.APP_HOST
 
 const FormSchema = z.object({
@@ -47,7 +48,7 @@ export async function handleFormSubmission(prevState: State, formData: FormData)
     // setup the exchange
   const vc = getPopulatedVC(recipientName as string)
   
-  const deepLink = await getDeepLink(vc)
+  const deepLink = await getDeepLink(vc, credName)
   const params = new URLSearchParams();
 params.append("deepLink", deepLink);
 params.append("recipientName", validatedFields.data.recipientName);
