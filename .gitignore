@@ -35,5 +35,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# authorized users
-users.json
+# secret stuff: authorized users and tenant tokens
+secrets.json
