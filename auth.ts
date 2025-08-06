@@ -8,7 +8,7 @@ import fs from 'fs';
  
 let users: [User];
 try {
-  users = JSON.parse(fs.readFileSync('./users.json', 'utf8'));
+  users = JSON.parse(fs.readFileSync('./secrets.json', 'utf8')).users;
 } catch (err) {
   console.error('Error reading file:', err);
 }
