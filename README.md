@@ -54,6 +54,25 @@ recipients.
 
 To add a new credential, just duplicate one of the existing credential directories, like [app/summit-presenter/](./app/summit-presenter), and customize as you like.
 
+You'll also need to set a tenant for each credential
+
+## Tenancy
+
+You can configure the app to sign each credential with a different signing key (DID).
+
+You'll need to setup tenancy in your [DCC workflow-coordinator](https://github.com/digitalcredentials/workflow-coordinator) and [DCC signing-service](https://github.com/digitalcredentials/signing-service). The READMEs for each explain how to do so.
+
+Once you've got your tenants set up, take a look at [secrets.example.json](./secrets.example.json) file. Rename that file to secrets.json and amend as needed. You'll see that you basically need to make an entry in the tenants section, using the name of the credential as a key, and providing the tenant name and token for each.
+
+You'll also have to set the credential name in the handleFormSubmission.ts file for the specific credential. Set the credName appropriately. See [handleFormSubmission.ts](./app/summit-presenter/handleFormSubmission.ts) for an example.
+
+## Authentication
+
+A rudimentary authentication system has been included that simply checks for emails and passwords in a file called secrets.json
+
+You can see the structure to follow in the [secrets.example.json](./secrets.example.json) file. Rename that file to secrets.json and amend as needed.
+
+
 ## Requirements
 
 You'll need running instances of the [DCC workflow-coordinator](https://github.com/digitalcredentials/workflow-coordinator) which in turn needs an instance of the [DCC transaction-manager](https://github.com/digitalcredentials/transaction-manager) and the [DCC signing-service](https://github.com/digitalcredentials/signing-service). Configure the workflow-coordinator's url in the EXCHANGE_HOST environment variable. See [env.example](./.env.example).

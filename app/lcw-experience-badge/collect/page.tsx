@@ -7,11 +7,13 @@ import TimeOut from '@/app/ui/collect/timeout';
 import { getDeepLink } from '@/app/lib/deepLink';
 import { getPopulatedVC } from '../getPopulatedVC';
 
+const credName = "lcw-experience-badge"  // for tenancy
+
 async function DeepLinks({ recipientName }: { recipientName: string }) {
 
   //const deepLink = `https://lcw.app/request.html?issuer=issuer.example.com&auth_type=bearer&challenge=${transactionId}&vc_request_url=https://issuer.dcconsortium.org/exchange/${exchangeId}/${transactionId}`
   const vc = getPopulatedVC(recipientName)
-  const deepLink = await getDeepLink(vc)
+  const deepLink = await getDeepLink(vc, credName)
 
   return (
     <div className="flex flex-col gap-3 m-10">

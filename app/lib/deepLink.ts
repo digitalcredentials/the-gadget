@@ -1,10 +1,16 @@
 'use server';
 
-const exchangeHost = process.env.EXCHANGE_HOST
-const tenantAuthToken = process.env.LCWEXP_TOKEN
+import fs from 'fs';
 
-const timeToLive = 300000  // 5 minutes
-const tenantName = 'test'
+const exchangeHost = process.env.EXCHANGE_HOST
+const timeToLive = 900000  // 15 minutes
+let tenants : any
+try {
+  tenants = JSON.parse(fs.readFileSync('./secrets.json', 'utf8')).tenants;
+} catch (err) {
+  console.error('Error reading secrets file:', err);
+}
+
 
 export async function confirmDeepLinkStillValid(deepLink:string):Promise<boolean> {
   const parsedDeepLink = new URL(deepLink)
@@ -14,7 +20,10 @@ export async function confirmDeepLinkStillValid(deepLink:string):Promise<boolean
   return result.verifiablePresentationRequest
 }
 
-export async function getDeepLink(vc:any):Promise<any> {
+export async function getDeepLink(vc:any, credName:string):Promise<any> {
+  const tenancy = tenants[credName]
+  const tenantName = tenancy.tenantName 
+  const tenantAuthToken = tenancy.tenantToken
 
   const dataToPost = {
     tenantName,
@@ -29,12 +38,12 @@ export async function getDeepLink(vc:any):Promise<any> {
   }
   // deeplinks look like this:
   //https://lcw.app/request.html?issuer=issuer.example.com&auth_type=bearer&challenge=50991c0d-e033-49c4-86aa-7f3620cf6937&vc_request_url=https://issuer.dcconsortium.org/exchange/e63007bc-6065-417c-8ae8-6b8fbc6a79df/50991c0d-e033-49c4-86aa-7f3620cf6937
-    const result = await postData(`${exchangeHost}/exchange/setup`, dataToPost)
+    const result = await postData(`${exchangeHost}/exchange/setup`, dataToPost, tenantAuthToken)
     const deepLink = result[0].directDeepLink;
     return deepLink     
 }
 
-async function postData(url = "", data = {}) {
+async function postData(url = "", data = {}, tenantAuthToken:string = "notused") {
   const response = await fetch(url, {
     method: "POST",
     mode: "cors",
