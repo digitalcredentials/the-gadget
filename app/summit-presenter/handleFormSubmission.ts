@@ -54,7 +54,7 @@ params.append("deepLink", deepLink);
 params.append("recipientName", validatedFields.data.recipientName);
 
     // send email
-    const collectionPageURL = `${appHost}/creds/summit-presenter/collect?${params.toString()}`
+    const collectionPageURL = `${appHost}/summit-presenter/collect?${params.toString()}`
     const htmlForEmail = getPopulatedEmail(collectionPageURL, validatedFields.data.recipientName)
     await sendEmail({
       html: htmlForEmail, 
