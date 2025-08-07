@@ -107,7 +107,7 @@ export const getPopulatedEmail = (claimPageLink:string, earnerName: string) =>  
 
   <!-- start preheader -->
   <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
-    Claim your DCC LCW Experience Badge
+    Claim your DCC Summit Badge
   </div>
   <!-- end preheader -->
 
@@ -177,12 +177,12 @@ export const getPopulatedEmail = (claimPageLink:string, earnerName: string) =>  
           <!-- start copy -->
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-              <p style="margin: 0;">Your DCC Learner Credential Wallet Experience Badge is ready for you to claim. This experience will demonstrate how an Open Badge 3.0 is digitally signed and issued on demand to a standards compatible wallet like the LCW.</p>
+              <p style="margin: 0;">Your DCC Summit Badge is ready for you to claim. This demonstrates how an Open Badge 3.0 is digitally signed and issued on demand to a standards compatible wallet like the LCW.</p>
             </td>
           </tr>
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">  
-              <p style="margin: 0;">To claim your LCW Experience Badge, download the <a href="https://lcw.app/" target="_blank">Learner Credential Wallet</a> on your mobile device and then click on the button below to get the next steps to claim your badge.</p>
+              <p style="margin: 0;">To claim your DCC Summit Badge, download the <a href="https://lcw.app/" target="_blank">Learner Credential Wallet</a> on your mobile device and then click on the button below to get the next steps to claim your badge.</p>
             </td>
           </tr>
           <!-- end copy -->
