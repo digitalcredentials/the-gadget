@@ -10,7 +10,7 @@ export default function Page() {
 
        
         <Image
-          src="/creds/DCCLogo-White.png"
+          src="/DCCLogo-White.png"
           width={322}
           height={100}
           alt="dark-mode-dcc-logo"
@@ -19,7 +19,7 @@ export default function Page() {
 
         <Image
           className="md:m-10 block dark:hidden"
-          src="/creds/DCC-Logo.png"
+          src="/DCC-Logo.png"
           alt="light-mode-dcc-logo"
           width={322}
           height={100}
