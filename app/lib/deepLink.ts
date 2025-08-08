@@ -6,7 +6,7 @@ const exchangeHost = process.env.EXCHANGE_HOST
 const timeToLive = 900000  // 15 minutes
 let tenants : any
 try {
-  tenants = JSON.parse(fs.readFileSync('./secrets.json', 'utf8')).tenants;
+  tenants = JSON.parse(fs.readFileSync(process.cwd() + '/secrets.json', 'utf8')).tenants;
 } catch (err) {
   console.error('Error reading secrets file:', err);
 }
