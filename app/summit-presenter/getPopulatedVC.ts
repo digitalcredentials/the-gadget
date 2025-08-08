@@ -32,13 +32,13 @@ export const vcTemplate = {
                "Achievement"
            ],
            "image": {
-               "id": "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/156794885",
+               "id": "https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/156794411",
                "type": "Image"
            },
            "achievementType": "Badge",
            "criteria": {
                "id": "urn:uuid:C0571026-DDEB-4A7E-813D-8445663C7A35",
-               "narrative": "Taylor Tuna attended the Digital Credentials Summit on June 26, 2025 in Delft, Netherlands. Taylor Tuna gave a presentation to Summit attendees on an area of interest in the domain of digital credentials in higher education."
+               "narrative": ""
            },
            "description": "The DCC Summit convening of Consortium member institutions and invited guests. Attendees reflected on and celebrated DCC achievements and engaged in conversations that will inform the strategy of the DCC’s next phase of work.",
            "name": "Presenter Badge: 2025 Digital Credentials Consortium Summit"
@@ -57,7 +57,8 @@ export const vcTemplate = {
 
 const getPopulatedVC = (recipientName: string) => {
   const vc = JSON.parse(JSON.stringify(vcTemplate))
-  vc.credentialSubject.identifier.identityHash = recipientName
+  vc.credentialSubject.identifier[0].identityHash = recipientName
+  vc.credentialSubject.achievement.criteria.narrative = `${recipientName} attended the Digital Credentials Summit on June 26, 2025 in Delft, Netherlands. ${recipientName} gave a presentation to Summit attendees on an area of interest in the domain of digital credentials in higher education.`
   vc.validFrom = (new Date()).toISOString();
   return vc
 }
