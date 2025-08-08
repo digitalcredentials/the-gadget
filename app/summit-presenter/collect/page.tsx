@@ -72,7 +72,7 @@ export default async function Page(props: {
       <div className="mx-auto flex md:gap-4 items-center max-w-screen-lg flex-col space-y-2.5 p-4">
     
         <Image
-           src="/creds/DCCLogo-White.png"
+           src="/DCCLogo-White.png"
            width={322}
            height={100}
            alt="dark-mode-dcc-logo"
@@ -81,7 +81,7 @@ export default async function Page(props: {
  
          <Image
            className="md:m-10 block dark:hidden"
-           src="/creds/DCC-Logo.png"
+           src="/DCC-Logo.png"
            alt="light-mode-dcc-logo"
            width={322}
            height={100}
