@@ -6,7 +6,17 @@ import { sendEmail } from '@/app/lib/sendEmail';
 import { getDeepLink } from '@/app/lib/deepLink';
 import { getPopulatedVC } from './getPopulatedVC';
 
-const credName = "summit-presenter"  // for tenancy
+import fs from 'fs';
+
+const credName = "summit-presenter";  // for credential configuration data
+
+let credDetails : {from: string, cc: string, bcc: string, tenantName: string, tenantToken: string};
+try {
+  credDetails = JSON.parse(fs.readFileSync(process.cwd() + '/secrets.json', 'utf8')).creds[credName]
+} catch (err) {
+  console.error('Error reading secrets file:', err);
+}
+
 const appHost = process.env.APP_HOST
 
 const FormSchema = z.object({
@@ -48,7 +58,7 @@ export async function handleFormSubmission(prevState: State, formData: FormData)
     // setup the exchange
   const vc = getPopulatedVC(recipientName as string)
   
-  const deepLink = await getDeepLink(vc, credName)
+  const deepLink = await getDeepLink(vc, credDetails.tenantName, credDetails.tenantToken)
   const params = new URLSearchParams();
 params.append("deepLink", deepLink);
 params.append("recipientName", validatedFields.data.recipientName);
@@ -58,8 +68,10 @@ params.append("recipientName", validatedFields.data.recipientName);
     const htmlForEmail = getPopulatedEmail(collectionPageURL, validatedFields.data.recipientName)
     await sendEmail({
       html: htmlForEmail, 
-      to: validatedFields.data.email, 
-      from: process.env.EMAIL_FROM as string, 
+      to: validatedFields.data.email,
+      from: credDetails.from, 
+      cc: credDetails.cc,
+      bcc: credDetails.bcc,
       subject: "You've got a credential waiting!"
     })
     
