@@ -4,13 +4,6 @@ import fs from 'fs';
 
 const exchangeHost = process.env.EXCHANGE_HOST
 const timeToLive = 900000  // 15 minutes
-let tenants : any
-try {
-  tenants = JSON.parse(fs.readFileSync(process.cwd() + '/secrets.json', 'utf8')).tenants;
-} catch (err) {
-  console.error('Error reading secrets file:', err);
-}
-
 
 export async function confirmDeepLinkStillValid(deepLink:string):Promise<boolean> {
   const parsedDeepLink = new URL(deepLink)
@@ -20,10 +13,7 @@ export async function confirmDeepLinkStillValid(deepLink:string):Promise<boolean
   return result.verifiablePresentationRequest
 }
 
-export async function getDeepLink(vc:any, credName:string):Promise<any> {
-  const tenancy = tenants[credName]
-  const tenantName = tenancy.tenantName 
-  const tenantAuthToken = tenancy.tenantToken
+export async function getDeepLink(vc:any, tenantName:string, tenantAuthToken:string):Promise<any> {
 
   const dataToPost = {
     tenantName,
