@@ -16,7 +16,9 @@ const smtpOptions : any = {
 
 const transporter = nodemailer.createTransport(smtpOptions)
 
-export async function sendEmail(messageParams: {html:string, to:string, subject: string, from: string, cc: string, bcc: string}) {
+export async function sendEmail(messageParams: {html:string, to:string, subject: string, from: string, cc?: string, bcc?: string}) {
+    console.log("the object passed to sendmail:")
+    console.log(messageParams)
     await transporter.sendMail(messageParams)
 }
 
