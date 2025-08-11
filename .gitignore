@@ -37,3 +37,5 @@ next-env.d.ts
 
 # secret stuff: authorized users and tenant tokens
 secrets.json
+
+package-lock.json
