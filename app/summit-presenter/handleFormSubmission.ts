@@ -10,7 +10,7 @@ import fs from 'fs';
 
 const credName = "summit-presenter";  // for credential configuration data
 
-let credDetails : {from: string, cc: string, bcc: string, tenantName: string, tenantToken: string};
+let credDetails : {from: string, cc?: string, bcc?: string, tenantName: string, tenantToken: string};
 try {
   credDetails = JSON.parse(fs.readFileSync(process.cwd() + '/secrets.json', 'utf8')).creds[credName]
 } catch (err) {
@@ -66,13 +66,15 @@ params.append("recipientName", validatedFields.data.recipientName);
     // send email
     const collectionPageURL = `${appHost}/summit-presenter/collect?${params.toString()}`
     const htmlForEmail = getPopulatedEmail(collectionPageURL, validatedFields.data.recipientName)
+    const cc = credDetails.cc;
+    const bcc = credDetails.bcc;
     await sendEmail({
       html: htmlForEmail, 
       to: validatedFields.data.email,
       from: credDetails.from, 
-      cc: credDetails.cc,
-      bcc: credDetails.bcc,
-      subject: "You've got a credential waiting!"
+      subject: "You've got a credential waiting!",
+      ...(cc && {cc }),
+      ...(bcc && {bcc})
     })
     
   } catch (error) {
