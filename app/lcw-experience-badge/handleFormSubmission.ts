@@ -9,7 +9,7 @@ const appHost = process.env.APP_HOST
 const FormSchema = z.object({
   recipientName: z.string().trim()
     .min(1, { message: "You must enter a name." }),
-  email: z.string().email()
+  email: z.email()
 });
 
 export type State = {
