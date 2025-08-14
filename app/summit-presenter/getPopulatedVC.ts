@@ -44,7 +44,7 @@ export const vcTemplate = {
            "name": "Presenter Badge: 2025 Digital Credentials Consortium Summit"
        }
    },
-   "validFrom": "2025-06-26T00:00:00Z",
+   "validFrom": "2025-06-26T15:00:00Z",
    "issuer": {
        "id": "did:key:z6MknNQD1WHLGGraFi6zcbGevuAgkVfdyCdtZnQTGWVVvR5Q",
        "type": [
