@@ -23,7 +23,7 @@ test('opens login page when not logged in', async ({ page }) => {
 test('logs in', async ({ page }) => {
   //await page.goto('http://localhost:3000/login');
 
-  c//onst username = page.getByTestId
+  //const username = page.getByTestId
 
    //await page.getByLabel('Email').fill('chartraj@mit.edu');
 
