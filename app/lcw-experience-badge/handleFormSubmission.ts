@@ -19,6 +19,7 @@ export type State = {
   };
   message?: string | null;
   success?: boolean | null;
+  collectionPageURL?: string | null;
   data?: {
     recipientName?: string;
     email?: string;
@@ -51,6 +52,7 @@ export async function handleFormSubmission(prevState: State, formData: FormData)
       from: process.env.EMAIL_FROM as string, 
       subject: "You've got a credential waiting!"
     })
+    return {...data, success: true, collectionPageURL};
   } catch (error) {
     console.log(error)
     return {
@@ -59,7 +61,7 @@ export async function handleFormSubmission(prevState: State, formData: FormData)
       ...data
     };
   }
-  return {...data, success: true};
+  
 }
 
 

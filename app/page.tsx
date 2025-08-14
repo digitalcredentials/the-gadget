@@ -1,6 +1,11 @@
 import { LinkIcon, PowerIcon } from '@heroicons/react/24/outline';
 import { signOut } from '@/auth';
 import Link from 'next/link';
+import { Metadata } from 'next';
+ 
+export const metadata: Metadata = {
+  title: 'Choose a Credential | The Gadget',
+};
 
 export default function Home() {
   return (
