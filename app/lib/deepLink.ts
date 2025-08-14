@@ -3,7 +3,7 @@
 import fs from 'fs';
 
 const exchangeHost = process.env.EXCHANGE_HOST
-const timeToLive = 900000  // 15 minutes
+const timeToLive = 15552000000  // 15 minutes
 
 export async function confirmDeepLinkStillValid(deepLink:string):Promise<boolean> {
   const parsedDeepLink = new URL(deepLink)
