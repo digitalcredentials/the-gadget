@@ -4,16 +4,25 @@ import Image from 'next/image';
 import QRCode from "react-qr-code";
 import TimeOut from '@/app/ui/collect/timeout';
 
+import fs from 'fs';
+
 import { getDeepLink } from '@/app/lib/deepLink';
 import { getPopulatedVC } from '../getPopulatedVC';
 
-const credName = "lcw-experience-badge"  // for tenancy
+const credName = "lcw-experience-badge"  // for credential configuration data
+
+let credDetails : {from: string, cc?: string, bcc?: string, tenantName: string, tenantToken: string};
+try {
+  credDetails = JSON.parse(fs.readFileSync(process.cwd() + '/secrets.json', 'utf8')).creds[credName]
+} catch (err) {
+  console.error('Error reading secrets file:', err);
+}
 
 async function DeepLinks({ recipientName }: { recipientName: string }) {
 
   //const deepLink = `https://lcw.app/request.html?issuer=issuer.example.com&auth_type=bearer&challenge=${transactionId}&vc_request_url=https://issuer.dcconsortium.org/exchange/${exchangeId}/${transactionId}`
   const vc = getPopulatedVC(recipientName)
-  const deepLink = await getDeepLink(vc, credName)
+  const deepLink = await getDeepLink(vc, credDetails.tenantName, credDetails.tenantToken)
 
   return (
     <div className="flex flex-col gap-3 m-10">
