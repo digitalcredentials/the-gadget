@@ -59,7 +59,8 @@ const getPopulatedVC = (recipientName: string) => {
   const vc = JSON.parse(JSON.stringify(vcTemplate))
   vc.credentialSubject.identifier[0].identityHash = recipientName
   vc.credentialSubject.achievement.criteria.narrative = `${recipientName} attended the Digital Credentials Summit on June 26, 2025 in Delft, Netherlands. ${recipientName} gave a presentation to Summit attendees on an area of interest in the domain of digital credentials in higher education.`
-  vc.validFrom = (new Date()).toISOString();
+  // we want the summit credentials date to be the date of the summit.
+ // vc.validFrom = (new Date()).toISOString();
   return vc
 }
 
