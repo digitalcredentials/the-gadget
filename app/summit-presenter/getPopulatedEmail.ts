@@ -177,7 +177,7 @@ export const getPopulatedEmail = (claimPageLink:string, earnerName: string) =>  
           <!-- start copy -->
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-              <p style="margin: 0;">Your DCC Summit Badge is ready for you to claim. This demonstrates how an Open Badge 3.0 is digitally signed and issued on demand to a standards compatible wallet like the LCW.</p>
+              <p style="margin: 0;">Congratulations! You have been issued a badge by the Digital Credentials Consortium (DCC) for presenting at the DCC Summit 2025 meeting in Delft. Thank you for your engagement and contributions to the event!</p>
             </td>
           </tr>
           <tr>
@@ -209,17 +209,8 @@ export const getPopulatedEmail = (claimPageLink:string, earnerName: string) =>  
 
           <!-- start copy -->
           <tr>
-            <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-              <p style="margin: 0;">If that doesn't work, copy and paste the following link in your browser:</p>
-              <p style="margin: 0;"><a href="${claimPageLink}" target="_blank">${claimPageLink}</a></p>
-            </td>
-          </tr>
-          <!-- end copy -->
-
-          <!-- start copy -->
-          <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 8px solid #d4dadf">
-              <p style="margin: 0;">Cheers,<br> Digital Credentials Consortium</p>
+              <p style="margin: 0;">Sincerely,<br> Digital Credentials Consortium</p>
             </td>
           </tr>
 
@@ -273,35 +264,6 @@ export const getPopulatedEmail = (claimPageLink:string, earnerName: string) =>  
       </td>
     </tr>
     <!-- end copy block -->
-
-    <!-- start footer -->
-    <tr>
-      <td align="center" bgcolor="#e9ecef" style="padding: 24px;">
-        <!--[if (gte mso 9)|(IE)]>
-        <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
-        <tr>
-        <td align="center" valign="top" width="600">
-        <![endif]-->
-        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-
-          <!-- start permission -->
-          <tr>
-            <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-              <p style="margin: 0;">You received this email because we received a request for an <a href="https://badging.dcconsortium.org/lcw-experience-badge" target="_blank">LCW Experience Badge</a> with this address. If you didn't request this badge you can safely delete this email.</p>
-            </td>
-          </tr>
-          <!-- end permission -->
-
-
-        </table>
-        <!--[if (gte mso 9)|(IE)]>
-        </td>
-        </tr>
-        </table>
-        <![endif]-->
-      </td>
-    </tr>
-    <!-- end footer -->
 
   </table>
   <!-- end body -->
