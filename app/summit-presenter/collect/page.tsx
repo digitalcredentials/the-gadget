@@ -2,7 +2,6 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import QRCode from "react-qr-code";
-import TimeOut from '@/app/ui/collect/timeout';
 import { confirmDeepLinkStillValid } from '@/app/lib/deepLink';
 
 async function DeepLinks({ deepLink, recipientName }: { recipientName: string, deepLink: string }) {
@@ -130,22 +129,22 @@ export default async function Page(props: {
       <div className="mx-auto flex md:gap-4 items-center max-w-screen-lg flex-col space-y-2.5 p-4">
     
         <Image
-           src="/DCCLogo-White.png"
+           src="/dcc-logo-dark.png"
            width={322}
            height={100}
            alt="dark-mode-dcc-logo"
            className="hidden dark:block md:m-10"
          />
  
-         <Image
+        <Image
            className="md:m-10 block dark:hidden"
-           src="/DCC-Logo.png"
+           src="/dcc-logo-light.png"
            alt="light-mode-dcc-logo"
            width={322}
            height={100}
          />
 
-             <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
+        <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
 
       </div>
       <div className="md:min-w-[500px]">
