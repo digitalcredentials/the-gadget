@@ -10,7 +10,7 @@ import fs from 'fs';
 
 const credName = "summit-presenter";  // for credential configuration data
 
-let credDetails : {from: string, cc?: string, bcc?: string, tenantName: string, tenantToken: string};
+let credDetails: { from: string, cc?: string, bcc?: string, tenantName: string, tenantToken: string };
 try {
   credDetails = JSON.parse(fs.readFileSync(process.cwd() + '/secrets.json', 'utf8')).creds[credName]
 } catch (err) {
@@ -32,6 +32,7 @@ export type State = {
   };
   message?: string | null;
   success?: boolean | null;
+  collectionPageURL?: string | null;
   data?: {
     recipientName?: string;
     email?: string;
@@ -39,11 +40,11 @@ export type State = {
 };
 
 
-export async function handleFormSubmission(prevState: State, formData: FormData) : Promise<State> {
+export async function handleFormSubmission(prevState: State, formData: FormData): Promise<State> {
 
   const recipientName = formData.get('recipientName')
   const email = formData.get('email')
-  const data = {recipientName, email}
+  const data = { recipientName, email }
   const validatedFields = FormSchema.safeParse(data);
 
   // If form validation fails, return errors early. Otherwise, continue.
@@ -56,12 +57,12 @@ export async function handleFormSubmission(prevState: State, formData: FormData)
 
   try {
     // setup the exchange
-  const vc = getPopulatedVC(recipientName as string)
-  
-  const deepLink = await getDeepLink(vc, credDetails.tenantName, credDetails.tenantToken)
-  const params = new URLSearchParams();
-params.append("deepLink", deepLink);
-params.append("recipientName", validatedFields.data.recipientName);
+    const vc = getPopulatedVC(recipientName as string)
+
+    const deepLink = await getDeepLink(vc, credDetails.tenantName, credDetails.tenantToken)
+    const params = new URLSearchParams();
+    params.append("deepLink", deepLink);
+    params.append("recipientName", validatedFields.data.recipientName);
 
     // send email
     const collectionPageURL = `${appHost}/summit-presenter/collect?${params.toString()}`
@@ -69,14 +70,15 @@ params.append("recipientName", validatedFields.data.recipientName);
     const cc = credDetails.cc;
     const bcc = credDetails.bcc;
     await sendEmail({
-      html: htmlForEmail, 
+      html: htmlForEmail,
       to: validatedFields.data.email,
-      from: credDetails.from, 
+      from: credDetails.from,
       subject: "You've got a credential waiting!",
-      ...(cc && {cc }),
-      ...(bcc && {bcc})
+      ...(cc && { cc }),
+      ...(bcc && { bcc })
     })
-    
+    return { ...data, success: true, collectionPageURL };
+
   } catch (error) {
     console.log(error)
     return {
@@ -85,7 +87,7 @@ params.append("recipientName", validatedFields.data.recipientName);
       ...data
     };
   }
-  return {...data, success: true};
+  
 }
 
 
