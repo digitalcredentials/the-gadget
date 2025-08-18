@@ -110,7 +110,7 @@ export default function Form() {
         <div className="mt-2 md:mt-6 flex justify-center md:gap-4">
           <Button className="bg-[#429EA6] hover:bg-gray-200 text-gray-900" onClick={()=>{state.success = false; setSuccess(!success)}}>Award Another</Button>
         </div>
-        <input type="hidden" id="postId" name="postId" value={state.collectionPageURL} />
+        <input type="hidden" data-testid="collectURL" name="collectURL" value={state.collectionPageURL} />
       </div>
     }
 </div>
