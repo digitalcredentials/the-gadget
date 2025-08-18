@@ -32,7 +32,7 @@ export type State = {
   };
   message?: string | null;
   success?: boolean | null;
-  collectionPageURL?: string | null;
+  collectionPageURL?: string;
   data?: {
     recipientName?: string;
     email?: string;
