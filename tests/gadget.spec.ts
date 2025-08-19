@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { mockLCW } from './lcw-mock';
 
 test('landing page has title', async ({ page }) => {
   await page.goto('http://localhost:3000')
@@ -58,6 +59,11 @@ test.describe('issue credential', () => {
     console.log("the deeplink on collection page:")
     console.log(deepLink)
     expect(deepLink).toContain('challenge');
+    if (deepLink) {
+      const vc = await mockLCW(deepLink);
+      console.log("the vc:")
+      console.log(vc)
+    } 
   });
 
 });
