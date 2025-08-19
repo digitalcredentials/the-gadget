@@ -1,6 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { mockLCW } from './lcw-mock';
 
+const testEmailRecipient = process.env.TEST_EMAIL_RECIPIENT || 'jchartrand@mailinator.com'
+const testUser = process.env.TEST_USER || ''
+const testPass = process.env.TEST_PASS || ''
+
 test('landing page has title', async ({ page }) => {
   await page.goto('http://localhost:3000')
   await expect(page).toHaveTitle('Choose a Credential | The Gadget');
@@ -16,9 +20,10 @@ test('opens login page when not logged in', async ({ page }) => {
 });
 
 test('logs in', async ({ page }) => {
+  
   await page.goto('http://localhost:3000/login');
-  await page.getByLabel('Email').fill('chartraj@mit.edu');
-  await page.getByLabel('Password').fill('thelake');
+  await page.getByLabel('Email').fill(testUser);
+  await page.getByLabel('Password').fill(testPass);
   await page.getByRole('button', { name: 'Log in' }).click();
   // now we should be taken to the landing page
   await expect(page).toHaveTitle('Choose a Credential | The Gadget');
@@ -29,9 +34,11 @@ test('logs in', async ({ page }) => {
 test.describe('issue credential', () => {
   test.beforeEach(async ({ page }) => {
     // login
+    console.log("test user:")
+  console.log(testUser)
     await page.goto('http://localhost:3000/login');
-    await page.getByLabel('Email').fill('chartraj@mit.edu');
-    await page.getByLabel('Password').fill('thelake');
+    await page.getByLabel('Email').fill(testUser);
+  await page.getByLabel('Password').fill(testPass);
     await page.getByRole('button', { name: 'Log in' }).click();
   });
 
@@ -43,7 +50,7 @@ test.describe('issue credential', () => {
   test('issues summit badge', async ({ page }) => {
     await page.getByTestId('summit-presenter-btn').click()
     await page.getByTestId('recipientName').fill('James Chartrand')
-    await page.getByTestId('email').fill('jchartrand@mailinator.com')
+    await page.getByTestId('email').fill(testEmailRecipient)
     await page.getByTestId('submitButton').click()
     await expect(page.getByText('The email has been sent!')).toBeVisible();
   });
