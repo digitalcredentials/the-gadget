@@ -20,18 +20,18 @@ test('logs in', async ({ page }) => {
   await page.getByLabel('Password').fill('thelake');
   await page.getByRole('button', { name: 'Log in' }).click();
   // now we should be taken to the landing page
- await expect(page).toHaveTitle('Choose a Credential | The Gadget');
- await expect(page.getByText('Choose a credential to issue')).toBeVisible();
- await expect(page.getByRole('link', { name: 'DCC Summit Presenter' })).toBeVisible();
+  await expect(page).toHaveTitle('Choose a Credential | The Gadget');
+  await expect(page.getByText('Choose a credential to issue')).toBeVisible();
+  await expect(page.getByRole('link', { name: 'DCC Summit Presenter' })).toBeVisible();
 });
 
 test.describe('issue credential', () => {
   test.beforeEach(async ({ page }) => {
-  // login
-  await page.goto('http://localhost:3000/login');
-  await page.getByLabel('Email').fill('chartraj@mit.edu');
-  await page.getByLabel('Password').fill('thelake');
-  await page.getByRole('button', { name: 'Log in' }).click();
+    // login
+    await page.goto('http://localhost:3000/login');
+    await page.getByLabel('Email').fill('chartraj@mit.edu');
+    await page.getByLabel('Password').fill('thelake');
+    await page.getByRole('button', { name: 'Log in' }).click();
   });
 
   test('opens summit form', async ({ page }) => {
@@ -45,6 +45,19 @@ test.describe('issue credential', () => {
     await page.getByTestId('email').fill('jchartrand@mailinator.com')
     await page.getByTestId('submitButton').click()
     await expect(page.getByText('The email has been sent!')).toBeVisible();
+  });
+
+  test.only('opens collection page', async ({ page }) => {
+    await page.getByTestId('summit-presenter-btn').click()
+    await page.getByTestId('recipientName').fill('James Chartrand')
+    await page.getByTestId('email').fill('jchartrand@mailinator.com')
+    await page.getByTestId('submitButton').click()
+    const collectionPageURL = await page.getByTestId('collectURL').inputValue()
+    await page.goto(collectionPageURL);
+    const deepLink = await page.getByTestId('deepLink').getAttribute('href');
+    console.log("the deeplink on collection page:")
+    console.log(deepLink)
+    expect(deepLink).toContain('challenge');
   });
 
 });
