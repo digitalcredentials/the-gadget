@@ -24,7 +24,7 @@ async function DeepLinks({ deepLink, recipientName }: { recipientName: string, d
         2. If you are viewing this page on your phone then click here to add your credential to the Learner Credential Wallet:<br />
       </div>
       <div className="m-5 flex justify-center gap-4">
-        <Link href={`${deepLink}`} className="flex h-10 items-center rounded-lg bg-[#429EA6] px-4 text-sm font-medium text-gray-800 transition-colors hover:bg-gray-200">Add to LCW</Link>
+        <Link href={`${deepLink}`} data-testid="deepLink" className="flex h-10 items-center rounded-lg bg-[#429EA6] px-4 text-sm font-medium text-gray-800 transition-colors hover:bg-gray-200">Add to LCW</Link>
       </div>
       <div className="max-w-[900px] text-left text-sm md:text-base font-medium">
       If you are viewing this page on a computer screen, scan this QR from your phone camera:

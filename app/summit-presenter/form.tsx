@@ -32,6 +32,7 @@ export default function Form() {
             <div className="relative">
               <input
                 id="recipientName"
+                data-testid="recipientName"
                 name="recipientName"
                 type="string"
                 defaultValue={state.data?.recipientName?state.data.recipientName:undefined}
@@ -65,6 +66,7 @@ export default function Form() {
                 id="email"
                 name="email"
                 type="email"
+                data-testid="email"
                 defaultValue={state.data?.email?state.data.email:undefined}
                 placeholder="Recipient's email address"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500 dark:text-black"
@@ -94,7 +96,7 @@ export default function Form() {
 
       {/* The submit button */}
       <div className="mt-4 md:mt-6 flex justify-center md:gap-4">
-        <Button className="bg-[#429EA6] hover:bg-gray-200 text-gray-900" type="submit">Award Credential</Button>
+        <Button className="bg-[#429EA6] hover:bg-gray-200 text-gray-900" type="submit" data-testid="submitButton">Award Credential</Button>
       </div>
     </form>
 }
@@ -110,7 +112,7 @@ export default function Form() {
         <div className="mt-2 md:mt-6 flex justify-center md:gap-4">
           <Button className="bg-[#429EA6] hover:bg-gray-200 text-gray-900" onClick={()=>{state.success = false; setSuccess(!success)}}>Award Another</Button>
         </div>
-        <input type="hidden" id="postId" name="postId" value={state.collectionPageURL} />
+        <input type="hidden" data-testid="collectURL" name="collectURL" value={state.collectionPageURL} />
       </div>
     }
 </div>
