@@ -32,7 +32,7 @@ export const vcTemplate = {
                "Achievement"
            ],
            "image": {
-               "id": "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/156794885",
+               "id": "https://digitalcredentials.github.io/badge-assets/DCC_Delft_Summit_Presenter.png",
                "type": "Image"
            },
            "achievementType": "Badge",
