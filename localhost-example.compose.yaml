@@ -3,12 +3,12 @@ services:
      image: digitalcredentials/workflow-coordinator:1.0.1
      environment:
        - PUBLIC_EXCHANGE_HOST=http://localhost:4005
-       - TENANT_TOKEN_SUMMIT=afunnytoken
+       - TENANT_TOKEN_GADGET=41B51425-025B-4F0A-9898-EDBEBECBD89F
        - "4005"
    signing:
      image: digitalcredentials/signing-service:1.2.0
      environment:
-       - TENANT_SEED_SUMMIT=todo: generate new token
+       - TENANT_SEED_GADGET=z1AahkeTDYhmLDHuevLwyG7SbHKq4QiL1KREp8UJRyUQ71d
    transactions:
      image: digitalcredentials/transaction-service:0.4.0
      environment:
@@ -18,7 +18,7 @@ services:
        - transactions:/var/lib/transactions
    gadget:
      build:
-      context: ./the-gadget
+      context: .
      expose:
        - "3007"
      environment:
