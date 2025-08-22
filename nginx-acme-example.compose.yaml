@@ -1,0 +1,70 @@
+services:
+   coordinator:
+     image: digitalcredentials/workflow-coordinator:1.0.1
+     environment:
+       - PUBLIC_EXCHANGE_HOST=https://issuer.EXAMPLE.org
+       - VIRTUAL_HOST=issuer.EXAMPLE.org
+       - VIRTUAL_PORT=4005
+       - VIRTUAL_PATH=/
+       - LETSENCRYPT_HOST=issuer.EXAMPLE.org
+       - TENANT_TOKEN_GADGET=41B51425-025B-4F0A-9898-EDBEBECBD89F
+     expose:
+       - "4005"
+   signing:
+     image: digitalcredentials/signing-service:1.2.0
+     environment:
+       - TENANT_SEED_GADGET=z1AahkeTDYhmLDHuevLwyG7SbHKq4QiL1KREp8UJRyUQ71d
+   transactions:
+     image: digitalcredentials/transaction-service:0.4.0
+     environment:
+       - PERSIST_TO_FILE=/var/lib/transactions/transactionsFile.json
+       - DEFAULT_TTL=600000
+     volumes:
+       - transactions:/var/lib/transactions
+   gadget:
+     build:
+      context: .
+     expose:
+       - "3007"
+     environment:
+       - PORT=3007
+       - VIRTUAL_HOST=gadget.EXAMPLE.org
+       - VIRTUAL_PORT=3007
+       - VIRTUAL_PATH=/
+       - LETSENCRYPT_HOST=gadget.EXAMPLE.org
+       - EXCHANGE_HOST=https://issuer.EXAMPLE.org
+       - APP_HOST=https://gadget.EXAMPLE.org
+       - SMTP_HOST=
+       - SMTP_USER=
+       - SMTP_PASS=
+       - AUTH_TRUST_HOST=true
+       - HOSTNAME=https://gadget.EXAMPLE.org
+       - AUTH_SECRET=mF7xW5BbgDYQxI51GmwKg5jTr8gl2C5JHSJujxHQOmw=
+   nginx-proxy:
+     image: nginxproxy/nginx-proxy
+     container_name: nginx-proxy
+     restart: unless-stopped
+     ports:
+      - "80:80"
+      - "443:443"
+     volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - html:/usr/share/nginx/html
+      - certs:/etc/nginx/certs
+      - vhost:/etc/nginx/vhost.d
+   nginx-proxy-acme:
+     image: nginxproxy/acme-companion
+     container_name: nginx-proxy-acme
+     volumes_from:
+      - nginx-proxy
+     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - acme:/etc/acme.sh
+     environment:
+      - DEFAULT_EMAIL=SOME_EMAIL_ADDRESS
+volumes:
+  vhost:
+  html:
+  certs:
+  acme:
+  transactions:
