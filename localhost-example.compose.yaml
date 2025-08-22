@@ -1,0 +1,35 @@
+services:
+   coordinator:
+     image: digitalcredentials/workflow-coordinator:1.0.1
+     environment:
+       - PUBLIC_EXCHANGE_HOST=http://localhost:4005
+       - TENANT_TOKEN_SUMMIT=afunnytoken
+       - "4005"
+   signing:
+     image: digitalcredentials/signing-service:1.2.0
+     environment:
+       - TENANT_SEED_SUMMIT=todo: generate new token
+   transactions:
+     image: digitalcredentials/transaction-service:0.4.0
+     environment:
+       - PERSIST_TO_FILE=/var/lib/transactions/transactionsFile.json
+       - DEFAULT_TTL=600000
+     volumes:
+       - transactions:/var/lib/transactions
+   gadget:
+     build:
+      context: ./the-gadget
+     expose:
+       - "3007"
+     environment:
+       - PORT=3007
+       - APP_HOST=http://localhost:3007
+       - EXCHANGE_HOST=http://localhost:4005
+       - SMTP_HOST=
+       - SMTP_USER=
+       - SMTP_PASS=
+       - AUTH_TRUST_HOST=true
+       - HOSTNAME="0.0.0.0"
+       - AUTH_SECRET=SET SOMETHING HERE - GENERATE USING ...
+volumes:
+  transactions:
