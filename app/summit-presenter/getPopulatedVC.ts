@@ -40,7 +40,7 @@ export const vcTemplate = {
                "id": "urn:uuid:C0571026-DDEB-4A7E-813D-8445663C7A35",
                "narrative": ""
            },
-           "description": "The DCC Summit brought together Consortium member institutions and invited guests. Attendees celebrated the DCC’s achievements and engaged in activities and conversations that will inform DCC strategy going forward. ",
+           "description": "The DCC Summit brought together Consortium member institutions and invited guests. Attendees celebrated the DCC’s achievements and engaged in activities and conversations that will inform DCC strategy going forward.",
            "name": "Attendee Badge: 2025 Digital Credentials Consortium Summit"
        }
    },
