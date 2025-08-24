@@ -1,3 +1,5 @@
+
+
 export const vcTemplate = {
    "@context": [
        "https://www.w3.org/ns/credentials/v2",
@@ -31,7 +33,7 @@ export const vcTemplate = {
                "Achievement"
            ],
            "image": {
-               "id": "https://digitalcredentials.github.io/badge-assets/DCC_Delft_Summit_Presenter.png",
+               "id": "https://digitalcredentials.github.io/badge-assets/DCC_Delft_Summit_Attendee.png",
                "type": "Image"
            },
            "achievementType": "Badge",
@@ -39,8 +41,8 @@ export const vcTemplate = {
                "id": "urn:uuid:C0571026-DDEB-4A7E-813D-8445663C7A35",
                "narrative": ""
            },
-           "description": "The DCC Summit brought together Consortium member institutions and invited guests. Attendees celebrated the DCC’s achievements and engaged in activities and conversations that will inform DCC strategy going forward. ",
-           "name": "Presenter Badge: 2025 Digital Credentials Consortium Summit"
+           "description": "The DCC Summit brought together Consortium member institutions and invited guests. Attendees celebrated the DCC’s achievements and engaged in activities and conversations that will inform DCC strategy going forward.",
+           "name": "Attendee Badge: 2025 Digital Credentials Consortium Summit"
        }
    },
    "validFrom": "2025-06-26T15:00:00Z",
@@ -57,7 +59,7 @@ export const vcTemplate = {
 const getPopulatedVC = (recipientName: string) => {
   const vc = JSON.parse(JSON.stringify(vcTemplate))
   vc.credentialSubject.identifier[0].identityHash = recipientName
-  vc.credentialSubject.achievement.criteria.narrative = `${recipientName} attended the Digital Credentials Summit on June 26, 2025 in Delft, Netherlands. ${recipientName} gave a presentation to Summit attendees on an area of interest in the domain of digital credentials in higher education.`
+  vc.credentialSubject.achievement.criteria.narrative = `${recipientName} attended the Digital Credentials Summit on June 26, 2025 in Delft, Netherlands. ${recipientName} contributed to workshops and discussions around global approaches to implementing standards-based, portable, Verifiable Credentials in higher education.`
   return vc
 }
 
