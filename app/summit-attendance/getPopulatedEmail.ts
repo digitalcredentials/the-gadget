@@ -177,7 +177,7 @@ export const getPopulatedEmail = (claimPageLink:string, earnerName: string) =>  
           <!-- start copy -->
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-              <p style="margin: 0;">Congratulations! You have been issued a badge by the Digital Credentials Consortium (DCC) for presenting at the DCC Summit 2025 meeting in Delft. Thank you for your engagement and contributions to the event!</p>
+              <p style="margin: 0;">Congratulations! You have been issued a badge by the Digital Credentials Consortium (DCC) for attending the DCC Summit 2025 meeting in Delft. Thank you for your engagement and contributions to the event!</p>
             </td>
           </tr>
           <tr>
