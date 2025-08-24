@@ -41,7 +41,7 @@ export const vcTemplate = {
                "narrative": ""
            },
            "description": "The DCC Summit brought together Consortium member institutions and invited guests. Attendees celebrated the DCC’s achievements and engaged in activities and conversations that will inform DCC strategy going forward. ",
-           "name": "Presenter Badge: 2025 Digital Credentials Consortium Summit"
+           "name": "Attendee Badge: 2025 Digital Credentials Consortium Summit"
        }
    },
    "validFrom": "2025-06-26T15:00:00Z",
