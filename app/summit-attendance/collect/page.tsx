@@ -13,7 +13,7 @@ async function DeepLinks({ deepLink, recipientName }: { recipientName: string, d
     <div className="flex flex-col gap-3 m-10">
       <div className="max-w-[900px] text-left text-l md:text-3xl font-medium mb-5">{`Hello ${recipientName}!`}</div>
       <div className="max-w-[900px] text-left text-sm md:text-lg font-medium">
-        This is where you can claim your DCC Summit Presenter Badge.</div>
+        This is where you can claim your DCC Summit Attendee Badge.</div>
         <div className="max-w-[900px] text-left text-sm md:text-lg font-medium">
           Here’s how it works:
       </div>
