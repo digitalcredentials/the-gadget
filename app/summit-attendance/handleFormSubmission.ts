@@ -8,7 +8,7 @@ import { getPopulatedVC } from './getPopulatedVC';
 
 import fs from 'fs';
 
-const credName = "summit-presenter";  // for credential configuration data
+const credName = "summit-attendance";  // for credential configuration data
 
 let credDetails: { from: string, cc?: string, bcc?: string, tenantName: string, tenantToken: string };
 try {
@@ -65,7 +65,7 @@ export async function handleFormSubmission(prevState: State, formData: FormData)
     params.append("recipientName", validatedFields.data.recipientName);
 
     // send email
-    const collectionPageURL = `${appHost}/summit-presenter/collect?${params.toString()}`
+    const collectionPageURL = `${appHost}/summit-attendance/collect?${params.toString()}`
     const htmlForEmail = getPopulatedEmail(collectionPageURL, validatedFields.data.recipientName)
     const cc = credDetails.cc;
     const bcc = credDetails.bcc;
