@@ -25,7 +25,7 @@ export default function Page() {
           height={100}
         />
 
-        <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
+        <div className="text-l md:text-3xl font-medium">DCC Summit Attendance Badge</div>
 
         <div>Enter the name of the recipient as it should appear in the credential.</div>
         <div>Enter the email address to which the notification should be sent.</div>
