@@ -32,7 +32,7 @@ export const vcTemplate = {
                "Achievement"
            ],
            "image": {
-               "id": "https://digitalcredentials.github.io/badge-assets/DCC_Delft_Summit_Presenter.png",
+               "id": "https://digitalcredentials.github.io/badge-assets/DCC_Delft_Summit_Attendee.png",
                "type": "Image"
            },
            "achievementType": "Badge",
