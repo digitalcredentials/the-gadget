@@ -158,7 +158,7 @@ export default async function Page(props: {
             {isDeepLinkValid ? 
           <DeepLinks recipientName={recipientName} deepLink={deepLink} />
           :
-          'Sorry the link to collect your credential has expired or has been used. Please email us to get a new link.'}
+          'Sorry, the link to collect your credential has expired or has been used. Please email us to get a new link.'}
         </Suspense>
       </div>
     </main>
