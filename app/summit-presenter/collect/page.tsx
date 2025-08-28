@@ -10,7 +10,7 @@ async function DeepLinks({ deepLink, recipientName }: { recipientName: string, d
 
 
   return (
-    <div className="flex flex-col gap-3 m-10">
+    <div className="flex flex-col gap-3 mb-10">
       <div className="max-w-[900px] text-left text-l md:text-3xl font-medium mb-5">{`Hello ${recipientName}!`}</div>
       <div className="max-w-[900px] text-left text-sm md:text-lg font-medium">
         This is where you can claim your DCC Summit Presenter Badge.</div>
@@ -145,7 +145,13 @@ export default async function Page(props: {
          />
 
         <div className="text-l md:text-3xl font-medium">DCC Summit Presenter Badge</div>
-
+         <Image
+                  src="/DCC_Delft_Summit_Presenter.png"
+                  width={220}
+                  height={220}
+                  alt="DCC Summit Presenter badge image"
+                  className="block md:m-5"
+                />
       </div>
       <div className="md:min-w-[500px]">
         <Suspense>
