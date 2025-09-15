@@ -73,7 +73,7 @@ export async function handleFormSubmission(prevState: State, formData: FormData)
       html: htmlForEmail,
       to: validatedFields.data.email,
       from: credDetails.from,
-      subject: "You've got a credential waiting!",
+      subject: "Your DCC Summit 2025 Presenter Digital Badge is Ready",
       ...(cc && { cc }),
       ...(bcc && { bcc })
     })
