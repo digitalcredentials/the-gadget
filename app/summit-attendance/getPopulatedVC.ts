@@ -1,4 +1,5 @@
 
+import { v4 as uuidv4 } from 'uuid';
 
 export const vcTemplate = {
    "@context": [
@@ -58,6 +59,7 @@ export const vcTemplate = {
 
 const getPopulatedVC = (recipientName: string) => {
   const vc = JSON.parse(JSON.stringify(vcTemplate))
+  vc.id = `urn:uuid:${uuidv4()}`
   vc.credentialSubject.identifier[0].identityHash = recipientName
   vc.credentialSubject.achievement.criteria.narrative = `${recipientName} attended the Digital Credentials Summit on June 26, 2025 in Delft, Netherlands. ${recipientName} contributed to workshops and discussions around global approaches to implementing standards-based, portable, Verifiable Credentials in higher education.`
   return vc
