@@ -107,7 +107,7 @@ export const getPopulatedEmail = (claimPageLink:string, earnerName: string) =>  
 
   <!-- start preheader -->
   <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
-    Claim your DCC Summit Badge
+    Receive Your Verifiable Credential
   </div>
   <!-- end preheader -->
 
@@ -177,12 +177,26 @@ export const getPopulatedEmail = (claimPageLink:string, earnerName: string) =>  
           <!-- start copy -->
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-              <p style="margin: 0;">Congratulations! You have been issued a badge by the Digital Credentials Consortium (DCC) for presenting at the DCC Summit 2025 meeting in Delft. Thank you for your engagement and contributions to the event!</p>
+              <p style="margin: 0;">Thank you for participating in the Digital Credentials Consortium Summit 2025 in Delft. We appreciate your valuable contributions to our community event.</p>
+            </td>
+          </tr>
+          <tr>
+            <td align="left" bgcolor="#ffffff" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+              <p style="margin: 0;">A digital badge has been prepared for you to recognize your presentation at this year's summit.</p>
             </td>
           </tr>
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">  
-              <p style="margin: 0;">To claim your DCC Summit Badge, download the <a href="https://lcw.app/" target="_blank">Learner Credential Wallet</a> on your mobile device and then click on the button below to get the next steps to claim your badge.</p>
+              <p style="margin: 0;">To access your digital badge:</p>
+              <ol>
+                <li>Install the <a href="https://lcw.app/" target="_blank">Learner Credential Wallet</a> application on your mobile device</li>
+                <li>Select the link below for detailed instructions on claiming your credential</li>
+            </td>
+          </tr>
+          <tr>
+            <td align="left" bgcolor="#ffffff" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+              <p style="margin: 0;">If you have questions, please contact digitalcredentials@mit.edu
+</p>
             </td>
           </tr>
           <!-- end copy -->
