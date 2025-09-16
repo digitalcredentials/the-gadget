@@ -195,7 +195,7 @@ export const getPopulatedEmail = (claimPageLink:string, earnerName: string) =>  
           </tr>
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-              <p style="margin: 0;">If you have questions, please contact digitalcredentials@mit.edu
+              <p style="margin: 0;">If you have questions, please contact credentials@dcconsortium.org
 </p>
             </td>
           </tr>
